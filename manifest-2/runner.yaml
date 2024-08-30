@@ -1,0 +1,25 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: sh-runner-deployment
+spec:
+  template:
+    spec:
+      repository: tridsanu-t/crypto-plat-test
+      labels:
+        - "eks_runner"
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: sh-runner-deployment-autoscaler
+spec:
+  scaleTargetRef:
+    kind: RunnerDeployment
+    name: sh-runner-deployment
+  minReplicas: 1
+  maxReplicas: 4
+  metrics:
+  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+    repositoryNames:
+    - tridsanu-t/crypto-plat-test

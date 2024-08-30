@@ -5,16 +5,53 @@ on:
     branches:
       - main
 
-jobs:
-  build:
-    runs-on: eks_runner
-    container:
-      image: ubuntu:latest
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-      with:
-        ref: main
 
-    - name: Echo Message
-      run: echo "Hello World"
+jobs:
+  scale-test1:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 1 finished!
+  scale-test2:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 2 finished!
+  scale-test3:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 3 finished!
+  scale-test4:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 4 finished!
