@@ -15,10 +15,13 @@ install-arc:
   	--create-namespace --wait actions-runner-controller \
   	actions-runner-controller/actions-runner-controller \
   	--set syncPeriod=1m
-
+uninstall-arc:
+	helm uninstall actions-runner-controller -n actions-runner-system
 ################ Configuration ################
 create-config:
 	kubectl create -f ./config/runner.yaml
+delete-config:
+	kubectl delete -f ./config/runner.yaml
 git-username:
 	git config --global user.name "deftdev test"
 git-email:
