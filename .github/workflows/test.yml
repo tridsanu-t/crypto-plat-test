@@ -8,7 +8,7 @@ on:
 
 jobs:
   scale-test1:
-    runs-on: sh-k8s-runner
+    runs-on: eks_runner
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -20,7 +20,7 @@ jobs:
       - name: Run a one-line script
         run: echo scale test 1 finished!
   scale-test2:
-    runs-on: sh-k8s-runner
+    runs-on: eks_runner
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -32,7 +32,7 @@ jobs:
       - name: Run a one-line script
         run: echo scale test 2 finished!
   scale-test3:
-    runs-on: sh-k8s-runner
+    runs-on: eks_runner
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -44,7 +44,7 @@ jobs:
       - name: Run a one-line script
         run: echo scale test 3 finished!
   scale-test4:
-    runs-on: sh-k8s-runner
+    runs-on: eks_runner
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
